@@ -1,0 +1,4 @@
+# Setup Screenshots
+
+This folder contains configuration screenshots that support the setup guides.
+These images document key configuration steps only.
