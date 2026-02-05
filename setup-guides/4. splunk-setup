@@ -1,0 +1,13 @@
+# Splunk SIEM Setup
+
+## Objective
+Centralize Windows and Sysmon logs for detection and alerting.
+
+## Configuration
+- Installed Splunk Enterprise on Windows Server
+- Ingested Windows Security, System, and Application logs
+- Ingested Sysmon Operational logs
+
+## Validation
+- Verified EventCode 4625 visible in Splunk
+- Confirmed logs indexed successfully
