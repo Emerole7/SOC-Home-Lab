@@ -1,0 +1,14 @@
+# VirtualBox Networking Configuration
+
+## Objective
+Configure an isolated internal network for SOC lab communication.
+
+## Steps
+1. Power off all virtual machines
+2. Open VM Settings → Network
+3. Set Adapter 1 to NAT Network
+4. Name the network `SOC-LAB`
+5. Repeat for all lab VMs
+
+## Validation
+- Verified IP connectivity between Kali Linux and Windows Server
