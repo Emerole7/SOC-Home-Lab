@@ -16,7 +16,7 @@ This project simulates a Security Operations Center (SOC) environment where real
 - Detect malicious activity
 - Create SOC-style alerts
 - Perform incident investigations
-- Document findings professionally
+- Documentation
 
 # Attack Scenarios
 - Bruteforce authentication attacks
