@@ -1,0 +1,17 @@
+# Windows Security Audit Logging
+
+## Objective
+Enable detailed security auditing for SOC monitoring.
+
+## Configuration
+- Enabled Advanced Audit Policies:
+  - Logon / Logoff (Success & Failure)
+  - Account Logon
+  - Privilege Use
+  - Process Creation
+- Enabled command-line logging for process creation
+- Applied Group Policy updates
+
+## Validation
+- Verified EventCode 4625 (failed logon)
+- Verified EventCode 4688 (process creation)
