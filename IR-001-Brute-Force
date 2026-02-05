@@ -1,0 +1,43 @@
+# IR-001 — Brute Force Authentication Attempt
+
+## Summary
+Splunk detected multiple failed authentication attempts against a Windows Server account, consistent with brute-force activity.
+
+## Environment
+- Victim: Windows Server (RDP enabled)
+- Attacker: Kali Linux (internal SOC-LAB network)
+- SIEM: Splunk (Windows Security + Sysmon ingestion)
+
+## Detection
+- Alert: SOC - Brute Force Authentication Attempt
+- Data: Windows Security Event ID 4625
+- Trigger: >= 5 failures from same source IP within a short time window
+
+## Key Evidence
+- Splunk search results showing repeated 4625 events
+- Triggered alert entry in Splunk
+- Event Viewer 4625 detail showing source IP (Kali)
+
+## Indicators
+- Source IP: 192.168.2.6
+- Target host: WIN-04KUH240MFE
+- Target account: Administrator
+- Time window: 02-05-2026/ 10:22:27 PST - 10:23:49 PST
+
+## Impact Assessment
+- No successful login confirmed (lab scenario)
+- No persistence observed
+
+## Response Actions (Lab)
+- Validated alert logic and ingestion
+- Confirmed log source and attacker IP in event details
+- Recommended controls:
+  - Account lockout policy
+  - MFA for RDP access
+  - Block offending IP at firewall
+  - Restrict RDP exposure / use jump host
+
+## Lessons Learned / Improvements
+- Tune threshold to reduce false positives
+- Add correlation for “4624 success after many 4625 fails”
+- Enrich with Sysmon network events (Event ID 3)
