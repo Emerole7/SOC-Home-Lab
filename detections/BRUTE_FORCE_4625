@@ -1,0 +1,30 @@
+ Brute Force Authentication Attempt (Windows Event ID 4625)
+
+##Goal
+Detect repeated failed authentication attempts from a single source IP that may indicate possible brute-force activity.
+
+## Data Source
+- Windows Security Event Logs
+- Event ID: 4625 (Failed Logon)
+
+## Splunk Detection Query
+> Triggers when failed logons from the same source IP reach a threshold (e.g., 5+) within a short time window.
+
+## Splunk SPL
+```spl
+index=main sourcetype="wineventlog:security" EventCode=4625 earliest=-10m | where Source_Network_Address!="-" | stats count as failures by Source_Network_Address | where failures >= 5
+
+## Alert Configuration
+- Type: Real-time
+- Trigger: Per result
+- Threshold: >= 5 failures per source IP
+- Action: Add to Triggered Alerts
+
+## MITRE ATT&CK
+- T1110 — Brute Force (Credential Access)
+
+## Analyst Triage Steps
+1. Identify source IP and affected account
+2. Check for successful logons after failures (4624)
+3. Confirm if source IP is internal or external (lab: Kali)
+4. Recommend containment (block IP / disable account / enforce MFA)
