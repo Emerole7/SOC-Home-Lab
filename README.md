@@ -1,2 +1,31 @@
-# SOC-Home-Lab
+# SOC HomeLab
 SOC home lab simulating real world attacks, SIEM detections, and incident response using Windows Server, Kali Linux, and Splunk.
+
+
+# Overview
+This project simulates a Security Operations Center (SOC) environment where real world attacks are generated and detected using a SIEM. The lab focuses on log analysis, alert creation, and incident response.
+
+# Architecture
+- Windows Server (log source)
+- Kali Linux (attacker)
+- SIEM (Splunk)
+- Sysmon and Windows Event Logs
+
+# Objectives
+- Generate security telemetry
+- Detect malicious activity
+- Create SOC-style alerts
+- Perform incident investigations
+- Document findings professionally
+
+# Attack Scenarios
+- Bruteforce authentication attacks
+- Suspicious PowerShell execution
+- Privilege escalation attempts
+
+## Tools Used
+- Windows Server
+- Kali Linux
+- Splunk
+- Sysmon
+- VirtualBox
