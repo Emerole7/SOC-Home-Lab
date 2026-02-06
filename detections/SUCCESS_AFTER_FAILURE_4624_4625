@@ -17,3 +17,9 @@ index=main sourcetype="wineventlog:security" (EventCode=4625 OR EventCode=4624) 
         count(eval(outcome="success")) as successes
   by Source_Network_Address
 | where fails >= 5 AND successes >= 1
+
+
+##Screenshot
+splunk-correlation-fail-then-success.png
+splunk-alert-config-success-after-fail.png
+splunk-alert-triggered-success-after-fail.png
