@@ -44,9 +44,12 @@ Each detection in this lab follows a SOC-style workflow:
 
 ---
 
+- Successful logon after multiple failures (4624 following 4625)
+File: SUCCESS_AFTER_FAILURE_4624_4625.md
+
 ## Planned Detections
 
-- Successful logon after multiple failures (EventCode 4624 following 4625)
+
 - Suspicious PowerShell execution (Sysmon Event ID 1)
 - Privilege escalation via new local administrator account
 
