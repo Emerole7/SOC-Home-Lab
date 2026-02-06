@@ -1,0 +1,19 @@
+# Successful Logon After Multiple Failures (4624 after 4625)
+
+## Description
+Detects a potential compromise pattern where multiple failed logon attempts (4625) are followed by a successful logon (4624) from the same source IP within a defined time window.
+
+## Data Source
+- Windows Security Event Logs
+- EventCode 4625 (Failed Logon)
+- EventCode 4624 (Successful Logon)
+
+## Splunk SPL (Correlation)
+```spl
+index=main sourcetype="wineventlog:security" (EventCode=4625 OR EventCode=4624) earliest=-60m
+| where Source_Network_Address!="-"
+| eval outcome=case(EventCode=4625,"fail", EventCode=4624,"success")
+| stats count(eval(outcome="fail")) as fails,
+        count(eval(outcome="success")) as successes
+  by Source_Network_Address
+| where fails >= 5 AND successes >= 1
