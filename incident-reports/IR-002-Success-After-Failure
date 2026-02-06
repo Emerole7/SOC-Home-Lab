@@ -1,0 +1,93 @@
+# IR-002 — Successful Logon After Multiple Failures
+
+## Incident Summary
+A correlation alert was triggered in Splunk indicating multiple failed authentication attempts
+(EventCode 4625) followed by a successful logon (EventCode 4624) from the same source IP.
+This pattern is consistent with a potential bruteforce attack that resulted in successful access.
+
+---
+
+## Detection Source
+- SIEM: Splunk Enterprise
+- Alert Name: SOC - Successful Logon After Multiple Failures
+- Alert Type: scheduled every hour
+- Trigger Condition: ≥ 5 failed logons followed by ≥ 1 successful logon within 60 minutes
+
+---
+
+## Environment
+- Victim Host: Windows Server
+- Log Sources:
+  - Windows Security Event Logs
+  - Sysmon (installed for enhanced telemetry)
+- Attacker Source: Kali Linux (lab environment)
+- Network: VirtualBox Internal Network (SOC-LAB)
+
+---
+
+## Timeline of Events
+
+| Time (Approx) | EventCode | Description |
+|--------------|----------|-------------|
+| T0           | 4625     | Multiple failed remote logon attempts detected |
+| T0 + X min   | 4625     | Continued authentication failures from same IP |
+| T0 + Y min   | 4624     | Successful remote logon from same source IP |
+
+This sequence indicates a transition from failed authentication attempts to successful access.
+
+---
+
+## Indicators of Activity
+- Source IP: 192.168.2.6
+- Target Account: Administrator
+- Logon Type: 10 (RemoteInteractive / RDP)
+- Host: WIN-O4KVH240MFE
+
+---
+
+## Evidence Collected
+- Splunk correlation search results showing failures followed by success
+- Triggered alert entry in Splunk
+- Windows Event Viewer:
+  - EventCode 4625 (failed logon)
+  - EventCode 4624 (successful logon)
+
+(See associated screenshots in the screenshots directory.)
+
+---
+
+## Impact Assessment
+- Successful authentication was achieved after repeated failures
+- No additional malicious post-login activity was observed in this lab scenario
+- In a production environment, this would be treated as a high-risk account compromise
+
+---
+
+## Analyst Assessment
+The observed pattern strongly suggests credential guessing or bruteforce activity that
+resulted in valid authentication. Immediate response would be required in a real environment
+to prevent lateral movement or persistence.
+
+---
+
+## Recommended Response Actions
+1. Immediately isolate or block the source IP
+2. Force password reset for the affected account
+3. Review account permissions and recent activity
+4. Enable or enforce multi-factor authentication (MFA)
+5. Review RDP exposure and restrict access where possible
+6. Increase monitoring for post-authentication activity (process creation, PowerShell)
+
+---
+
+## Lessons Learned / Improvements
+- Correlation detections significantly increase detection fidelity
+- Real time alerts are appropriate for high-confidence compromise indicators
+- Additional correlation with Sysmon process execution would improve visibility
+- Account lockout policies could reduce brute-force success probability
+
+---
+
+## MITRE ATT&CK Mapping
+- T1110 — Brute Force
+- T1078 — Valid Accounts (context-dependent)
