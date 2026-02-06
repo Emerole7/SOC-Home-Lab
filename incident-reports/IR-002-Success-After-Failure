@@ -11,6 +11,7 @@ This pattern is consistent with a potential bruteforce attack that resulted in s
 - SIEM: Splunk Enterprise
 - Alert Name: SOC - Successful Logon After Multiple Failures
 - Alert Type: scheduled every hour
+- Search Window: Last 60 minutes
 - Trigger Condition: ≥ 5 failed logons followed by ≥ 1 successful logon within 60 minutes
 
 ---
