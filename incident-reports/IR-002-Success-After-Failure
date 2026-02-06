@@ -87,6 +87,9 @@ The observed pattern strongly suggests credential guessing or bruteforce activit
 ---
 Note: This detection is implemented as a scheduled alert to ensure reliable correlation across ingestion delays. In production, execution frequency may be adjusted based on SOC requirements.
 
+## Screenshots
+splunk-timeline-4625-to-4624.png
+4624-success-eventviewer.png
 
 ## MITRE ATT&CK Mapping
 - T1110 — Brute Force
