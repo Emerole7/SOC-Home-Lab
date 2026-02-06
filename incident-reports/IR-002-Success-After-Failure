@@ -60,14 +60,12 @@ This sequence indicates a transition from failed authentication attempts to succ
 ## Impact Assessment
 - Successful authentication was achieved after repeated failures
 - No additional malicious post-login activity was observed in this lab scenario
-- In a production environment, this would be treated as a high-risk account compromise
+
 
 ---
 
 ## Analyst Assessment
-The observed pattern strongly suggests credential guessing or bruteforce activity that
-resulted in valid authentication. Immediate response would be required in a real environment
-to prevent lateral movement or persistence.
+The observed pattern strongly suggests credential guessing or bruteforce activity that resulted in valid authentication. Immediate response would be required in a real environment to prevent lateral movement or persistence.
 
 ---
 
@@ -83,11 +81,12 @@ to prevent lateral movement or persistence.
 
 ## Lessons Learned / Improvements
 - Correlation detections significantly increase detection fidelity
-- Real time alerts are appropriate for high-confidence compromise indicators
 - Additional correlation with Sysmon process execution would improve visibility
 - Account lockout policies could reduce brute-force success probability
 
 ---
+Note: This detection is implemented as a scheduled alert to ensure reliable correlation across ingestion delays. In production, execution frequency may be adjusted based on SOC requirements.
+
 
 ## MITRE ATT&CK Mapping
 - T1110 — Brute Force
