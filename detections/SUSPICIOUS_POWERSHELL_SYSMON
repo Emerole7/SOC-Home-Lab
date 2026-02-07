@@ -1,0 +1,44 @@
+# Suspicious PowerShell Execution (Sysmon EventCode 1)
+
+## Description
+Detects potentially malicious PowerShell execution by identifying suspicious
+command-line flags commonly associated with living-off-the-land techniques,
+including encoded commands, profile bypassing, and hidden execution.
+
+## Data Source
+- Sysmon Operational Logs
+- EventCode 1 (Process Creation)
+
+## Detection Logic (Splunk SPL)
+
+```spl
+index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
+| rex field=_raw "Image:\s+(?<Image>[^\r\n]+)"
+| rex field=_raw "CommandLine:\s+(?<CommandLine>[^\r\n]+)"
+| search Image="*\\powershell.exe"
+| where like(CommandLine,"% -EncodedCommand %")
+   OR like(CommandLine,"% -NoProfile %")
+   OR like(CommandLine,"% -WindowStyle Hidden%")
+| table _time host Image CommandLine
+
+## Alert Configuration
+Type: Scheduled
+Frequency: Every 1 hour
+Time Window: Last 60 minutes
+Trigger: Per result
+Throttling: Enabled (30 minutes)
+
+## MITRE ATT&CK Mapping
+T1059.001 Command and Scripting Interpreter: PowerShell
+
+## Analyst Triage Steps
+Review PowerShell command-line arguments
+Identify the executing user and host
+Check parent process and execution context
+Investigate follow on activity (file creation, network connections)
+Contain host if malicious behavior is confirmed
+
+##Detection Design Notes
+Field extraction for Sysmon events varied by environment.
+Image and CommandLine fields were extracted directly from raw Sysmon XML
+using rex to ensure consistent detection reliability.
