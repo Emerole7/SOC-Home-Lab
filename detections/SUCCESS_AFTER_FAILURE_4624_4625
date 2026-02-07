@@ -18,6 +18,21 @@ index=main sourcetype="wineventlog:security" (EventCode=4625 OR EventCode=4624) 
   by Source_Network_Address
 | where fails >= 5 AND successes >= 1
 
+##Alert Settings
+Scheduled: Every 1hour
+Window: Last 60 minutes
+Trigger: Per result (per source IP)
+Throttle: 30 minutes recommended
+
+##MITRE ATT&CK
+T1110 — Brute Force (Credential Access)
+
+
+##Analyst Triage Steps
+Confirm source IP and target account(s)
+Validate event order (failures → success)
+Check for post login activity (process creation, PowerShell, Sysmon)
+Containment recommendations: lock account, block IP, enforce MFA, restrict RDP
 
 ##Screenshot
 splunk-correlation-fail-then-success.png
