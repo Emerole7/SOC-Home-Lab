@@ -90,6 +90,7 @@ Note: This detection is implemented as a scheduled alert to ensure reliable corr
 ## Screenshots
 splunk-timeline-4625-to-4624.png
 4624-success-eventviewer.png
+splunk-alert-triggered-success-after-fail.png
 
 ## MITRE ATT&CK Mapping
 - T1110 — Brute Force
