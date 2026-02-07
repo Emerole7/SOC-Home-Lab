@@ -39,10 +39,10 @@ Each incident report in this lab follows a SOCstyle response process:
 - The focus is on detection, investigation, and response, not exploitation.
 
 ---
-
-## Future Incident Reports
-
 - Successful logon after multiple failed attempts
 - Suspicious PowerShell execution
+
+  
+## Future Incident Reports
 - Privilege escalation attempt
 
