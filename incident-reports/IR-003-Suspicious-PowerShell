@@ -1,0 +1,56 @@
+## Incident Summary
+A scheduled Splunk alert triggered after detecting PowerShell process creation
+with suspicious command-line arguments consistent with living off the land techniques.
+
+## Detection Method
+- SIEM: Splunk Enterprise
+- Data Source: Sysmon EventCode 1
+- Alert: SOC - Suspicious PowerShell Execution
+
+## Timeline of Events
+
+| Time | Event |
+|-----|------|
+| T0 | PowerShell executed with suspicious flags |
+| T0 + minutes | Sysmon process creation event logged |
+| T0 + minutes | Splunk alert triggered |
+
+## Indicators
+- Process: powershell.exe
+- Suspicious Flags:
+  - -NoProfile
+  - -WindowStyle Hidden
+- Host: Windows Server
+- User Context: SYSTEM / Administrator (lab environment)
+
+## Evidence
+- Sysmon EventCode 1 showing PowerShell execution
+- Splunk detection results
+- Triggered alert confirmation
+
+## Impact Assessment
+In a production environment, this behavior may indicate:
+- Script-based malware execution
+- Credential harvesting
+- Initial access or post-exploitation activity
+
+No further malicious activity was observed in this lab scenario.
+
+## Recommended Response Actions
+1. Isolate affected endpoint
+2. Review recent PowerShell execution history
+3. Identify downloaded or modified files
+4. Restrict PowerShell usage via policy if appropriate
+5. Increase monitoring for persistence mechanisms
+
+## Lessons Learned
+- Sysmon filtering can impact detection visibility
+- Raw log parsing ensures detection reliability
+- Scheduled alerts provide stability for endpoint telemetry
+
+## MITRE ATT&CK
+- T1059.001 — Command and Scripting Interpreter: PowerShell
+
+Screenshot
+splunk-alert-triggered-suspicious-powershell-encodng.png
+eventviewer-sysmon-powershell.png
