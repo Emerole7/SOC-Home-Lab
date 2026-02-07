@@ -16,7 +16,11 @@ Each report follows a simplified SOC incident response format and is based on va
 
  File: `IR-001-Brute-Force.md`
 
----
+###  IR-002 Successful logon after multiple failed attempts
+File: IR-002-Success-After-Failure.md
+
+### IR-003 Suspicious PowerShell execution
+File: IR-003-Suspicious-Powershell.md
 
 ## Incident Response Workflow
 
@@ -38,9 +42,6 @@ Each incident report in this lab follows a SOCstyle response process:
 - Reports are written from a SOC analyst perspective, not an attacker perspective.
 - The focus is on detection, investigation, and response, not exploitation.
 
----
-- Successful logon after multiple failed attempts
-- Suspicious PowerShell execution
 
   
 ## Future Incident Reports
