@@ -42,3 +42,7 @@ Contain host if malicious behavior is confirmed
 Field extraction for Sysmon events varied by environment.
 Image and CommandLine fields were extracted directly from raw Sysmon XML
 using rex to ensure consistent detection reliability.
+
+##Screenshot
+splunk-sysmon-eventcode1-baseline.png
+splunk-suspicious-powershell-results.png
