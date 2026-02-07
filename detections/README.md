@@ -21,6 +21,13 @@ alert logic development, and incident triage.
 
 ---
 
+### Successful logon after multiple failures (4624 following 4625)
+File: SUCCESS_AFTER_FAILURE_4624_4625.md
+
+### Execution (Sysmon EventCode 1)** — Detects PowerShell abuse using command-line analysis.
+File: SUSPICIOUS_POWERSHELL_SYSMON.md
+
+
 ## Detection Methodology
 
 Each detection in this lab follows a SOC-style workflow:
@@ -44,11 +51,8 @@ Each detection in this lab follows a SOC-style workflow:
 
 ---
 
-- Successful logon after multiple failures (4624 following 4625)
-File: SUCCESS_AFTER_FAILURE_4624_4625.md
 
-Execution (Sysmon EventCode 1)** — Detects PowerShell abuse using command-line analysis.
-File: SUSPICIOUS_POWERSHELL_SYSMON.md
+
 
 ## Planned Detections
 
