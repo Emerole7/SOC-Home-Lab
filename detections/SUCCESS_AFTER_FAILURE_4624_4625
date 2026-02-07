@@ -37,4 +37,4 @@ Containment recommendations: lock account, block IP, enforce MFA, restrict RDP
 ##Screenshot
 splunk-correlation-fail-then-success.png
 splunk-alert-config-success-after-fail.png
-splunk-alert-triggered-success-after-fail.png
+
