@@ -14,13 +14,16 @@ Each report follows a simplified SOC incident response format and is based on va
 - MITRE ATT&CK: T1110
 - Status: Investigated and documented
 
- File: `IR-001-Brute-Force.md`
+ File: IR-001-Brute-Force.md
 
 ###  IR-002 Successful logon after multiple failed attempts
 File: IR-002-Success-After-Failure.md
 
 ### IR-003 Suspicious PowerShell execution
 File: IR-003-Suspicious-Powershell.md
+
+### IR-004 Privilege Escalation
+File: IR-004-Privilege-Escalation.md
 
 ## Incident Response Workflow
 
@@ -44,6 +47,6 @@ Each incident report in this lab follows a SOCstyle response process:
 
 
   
-## Future Incident Reports
-- Privilege escalation attempt
+
+
 
