@@ -17,7 +17,7 @@ alert logic development, and incident triage.
 - MITRE ATT&CK: T1110 – Brute Force
 - Status: Implemented and validated
 
- File: `BRUTE_FORCE_4625.md`
+ File: BRUTE_FORCE_4625.md
 
 ---
 
@@ -27,6 +27,8 @@ File: SUCCESS_AFTER_FAILURE_4624_4625.md
 ### Execution (Sysmon EventCode 1)** — Detects PowerShell abuse using command-line analysis.
 File: SUSPICIOUS_POWERSHELL_SYSMON.md
 
+### Privilege escalation via new local administrator account
+File: PRIVILEGE_ESCALATION_LOCAL_ADMIN.md
 
 ## Detection Methodology
 
@@ -54,8 +56,7 @@ Each detection in this lab follows a SOC-style workflow:
 
 
 
-## Planned Detections
 
 
-- Privilege escalation via new local administrator account
+
 
