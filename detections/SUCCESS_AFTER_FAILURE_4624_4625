@@ -28,11 +28,6 @@ Throttle: 30 minutes recommended
 T1110 — Brute Force (Credential Access)
 
 
-##Analyst Triage Steps
-Confirm source IP and target account(s)
-Validate event order (failures → success)
-Check for post login activity (process creation, PowerShell, Sysmon)
-Containment recommendations: lock account, block IP, enforce MFA, restrict RDP
 
 ##Screenshot
 splunk-correlation-fail-then-success.png
