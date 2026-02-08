@@ -1,0 +1,31 @@
+# Privilege Escalation via Local Administrator Group
+
+## Description
+Detects the addition of user accounts to the local Administrators group,
+a common privilege escalation and persistence technique used by attackers.
+The detection enriches member SIDs to usernames using correlated account
+creation events.
+
+## Data Sources
+- Windows Security Logs
+- Event ID 4720 — User Account Created
+- Event ID 4732 — Security Group Membership Change
+- Splunk sourcetype: WinEventLog:Security
+
+## Detection Logic (Splunk SPL)
+
+```spl
+index=main sourcetype="WinEventLog:Security" EventCode=4732 earliest=-24h
+| rex field=_raw "(?ms)Subject:.*?Account Name:\s+(?<Actor>[^\r\n]+)"
+| rex field=_raw "(?ms)Member:.*?Security ID:\s+(?<MemberSID>[^\r\n]+)"
+| rex field=_raw "(?ms)Group:.*?Group Name:\s+(?<GroupName>[^\r\n]+)"
+| search GroupName="Administrators"
+| join type=left MemberSID [
+    search index=main sourcetype="WinEventLog:Security" EventCode=4720 earliest=-24h
+    | rex field=_raw "(?ms)New Account:.*?Security ID:\s+(?<MemberSID>[^\r\n]+)"
+    | rex field=_raw "(?ms)New Account:.*?Account Name:\s+(?<MemberAdded>[^\r\n]+)"
+    | stats latest(MemberAdded) as MemberAdded by MemberSID
+]
+| eval MemberAdded=coalesce(MemberAdded,"UNKNOWN_SID")
+| table _time host Actor MemberAdded MemberSID GroupName
+
