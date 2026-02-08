@@ -3,7 +3,7 @@
 ## Description
 Detects the addition of user accounts to the local Administrators group,
 a common privilege escalation and persistence technique used by attackers.
-The detection enriches member SIDs to usernames using correlated account
+The detection matches member SIDs to usernames using correlated account
 creation events.
 
 ## Data Sources
@@ -45,4 +45,10 @@ T1078 — Valid Accounts
 Windows Event ID 4732 may record group members as SIDs with the Account Name
 field set to "-". This detection extracts the Member SID and enriches it
 to a username by correlating with Event ID 4720.
+
+Screenshots:
+Splunk-4720.png
+Splunk-4732.png
+splunk-4720-user-created.png
+splunk-4732-enriched-member.png
 
