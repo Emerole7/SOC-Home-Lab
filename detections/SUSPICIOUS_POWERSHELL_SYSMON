@@ -31,12 +31,7 @@ Throttling: Enabled (30 minutes)
 ## MITRE ATT&CK Mapping
 T1059.001 Command and Scripting Interpreter: PowerShell
 
-## Analyst Triage Steps
-Review PowerShell command-line arguments
-Identify the executing user and host
-Check parent process and execution context
-Investigate follow on activity (file creation, network connections)
-Contain host if malicious behavior is confirmed
+
 
 ##Detection Design Notes
 Field extraction for Sysmon events varied by environment.
