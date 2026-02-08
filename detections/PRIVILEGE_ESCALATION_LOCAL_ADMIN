@@ -29,3 +29,20 @@ index=main sourcetype="WinEventLog:Security" EventCode=4732 earliest=-24h
 | eval MemberAdded=coalesce(MemberAdded,"UNKNOWN_SID")
 | table _time host Actor MemberAdded MemberSID GroupName
 
+## Alert Configuration
+Type: Scheduled
+Frequency: Every 1 hour
+Time Window: Last 60 minutes
+Trigger: Per result
+Throttle: 60 minutes
+
+## MITRE ATT&CK Mappin
+T1098 — Account Manipulation
+T1078 — Valid Accounts
+
+## Detection Design Notes
+
+Windows Event ID 4732 may record group members as SIDs with the Account Name
+field set to "-". This detection extracts the Member SID and enriches it
+to a username by correlating with Event ID 4720.
+
