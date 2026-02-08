@@ -1,0 +1,45 @@
+
+
+## Incident Summary
+A Splunk alert triggered after detecting the addition of a newly created
+local user account to the Administrators group on a Windows host.
+
+## Detection Method
+- SIEM: Splunk
+- Alert: SOC - Local Administrator Added (Enriched)
+- Data Source: Windows Security Logs (4720, 4732)
+
+## Timeline
+
+| Time | Event |
+|-----|------|
+| T0 | Local user account created (4720) |
+| T0 + minutes | User added to Administrators group (4732) |
+| T0 + minutes | Splunk alert triggered |
+
+## Evidence
+- Event ID 4720 confirming account creation
+- Event ID 4732 confirming admin group membership change
+- SID-to-username enrichment identifying affected account
+
+
+## Impact Assessment
+In a production environment, this behavior could indicate:
+- Backdoor administrative account creation
+- Privilege escalation following initial compromise
+- Insider threat activity
+
+No further malicious activity was observed in this lab environment.
+
+## Response Actions Taken
+1. Verified the account and group membership change
+2. Removed the unauthorized user from the Administrators group
+3. Deleted the test account
+4. Documented findings and detection logic
+
+## MITRE ATT&CK
+- T1098 — Account Manipulation
+- T1078 — Valid Accounts
+
+## Screenshots
+splunk-alert-triggered-admin-added.png
