@@ -10,7 +10,7 @@ Each report follows a simplified SOC incident response format and is based on va
 ###  IR-001 — Brute Force Authentication Attempt
 - Alert Source: Splunk SIEM
 - Detection: Repeated failed authentication attempts (Windows EventCode 4625)
-- Attack Type: Credential Access – Brute Force
+- Attack Type: Credential Access Brute Force
 - MITRE ATT&CK: T1110
 - Status: Investigated and documented
 
@@ -27,7 +27,7 @@ File: IR-004-Privilege-Escalation.md
 
 ## Incident Response Workflow
 
-Each incident report in this lab follows a SOCstyle response process:
+Each incident report in this lab follows a SOC style response process:
 
 1. Alert triggered by SIEM
 2. Initial triage and validation
