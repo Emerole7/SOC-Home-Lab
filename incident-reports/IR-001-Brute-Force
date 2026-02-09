@@ -29,18 +29,18 @@ Splunk detected multiple failed authentication attempts against a Windows Server
 - No persistence observed
 
 ## Response Actions (Lab)
-- Validated alert logic and ingestion
-- Confirmed log source and attacker IP in event details
-- Recommended controls:
+- I validated alert logic and ingestion
+- I confirmed log source and attacker IP in event details
+- I recommended controls:
   - Account lockout policy
   - MFA for RDP access
   - Block offending IP at firewall
   - Restrict RDP exposure / use jump host
 
 ## Lessons Learned / Improvements
-- Tune threshold to reduce false positives
-- Add correlation for “4624 success after many 4625 fails”
-- Enrich with Sysmon network events (Event ID 3)
+- I tuned threshold to reduce false positives
+- I added correlation for “4624 success after many 4625 fails”
+- I enriche with Sysmon network events (Event ID 3)
 
 ## Screenshot
 splunk-Triggered-Alert.png
