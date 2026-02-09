@@ -1,7 +1,7 @@
 # Detection Engineering
 
 This folder contains security detections developed and validated in a SOC home lab environment.
-Each detection is based on simulated real-world attack activity and implemented in Splunk SIEM.
+Each detection is based on simulated real world attack activity and implemented in Splunk SIEM.
 
 The purpose of these detections is to demonstrate Tier 1 SOC analyst skills, including log analysis,
 alert logic development, and incident triage.
@@ -32,7 +32,7 @@ File: PRIVILEGE_ESCALATION_LOCAL_ADMIN.md
 
 ## Detection Methodology
 
-Each detection in this lab follows a SOC-style workflow:
+Each detection in this lab follows a SOC style workflow:
 
 1. Simulate an attack in a controlled lab environment
 2. Verify event generation in Windows Event Viewer
