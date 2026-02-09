@@ -40,6 +40,13 @@ Throttle: 60 minutes
 T1098 — Account Manipulation
 T1078 — Valid Accounts
 
+## SOC Response Steps
+-Validate legitimacy of the added account
+-Identify the actor who performed the change
+-Disable or remove unauthorized admin accounts
+-Review recent authentication and activity
+-Reset credentials if compromise is suspected
+
 ## Detection Design Notes
 
 Windows Event ID 4732 may record group members as SIDs with the Account Name
