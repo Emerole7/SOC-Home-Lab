@@ -32,10 +32,10 @@ In a production environment, this behavior could indicate:
 No further malicious activity was observed in this lab environment.
 
 ## Response Actions Taken
-1. Verified the account and group membership change
-2. Removed the unauthorized user from the Administrators group
-3. Deleted the test account
-4. Documented findings and detection logic
+1. I verified the account and group membership change
+2. I removed the unauthorized user from the Administrators group
+3. I deleted the test account
+4. I documented findings and detection logic
 
 ## MITRE ATT&CK
 - T1098 — Account Manipulation
