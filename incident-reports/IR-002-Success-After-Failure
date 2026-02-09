@@ -53,7 +53,6 @@ This sequence indicates a transition from failed authentication attempts to succ
   - EventCode 4625 (failed logon)
   - EventCode 4624 (successful logon)
 
-(See associated screenshots in the screenshots directory.)
 
 ---
 
