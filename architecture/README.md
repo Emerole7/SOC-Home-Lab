@@ -1,6 +1,5 @@
 # SOC Home Lab Architecture
 
-This section documents the architecture of the SOC Home Lab and how security telemetry flows from endpoints to the SIEM.
 
 The architecture is intentionally simple and realistic, mirroring a small enterprise SOC environment.
 
@@ -51,14 +50,14 @@ All systems communicate within an isolated internal network.
 
 - VirtualBox Internal Network (`SOC-LAB`)
 - No direct internet exposure
-- Controlled lab-only communication
+- Controlled lab only communication
 
 ---
 
 ## Purpose
 
 This architecture supports:
-- SOC-style monitoring
+- SOC style monitoring
 - Detection engineering
 - Incident investigation
 - Alert validation
