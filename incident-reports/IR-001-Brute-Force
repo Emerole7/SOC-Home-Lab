@@ -1,7 +1,7 @@
 # IR-001 — Brute Force Authentication Attempt
 
 ## Summary
-Splunk detected multiple failed authentication attempts against a Windows Server account, consistent with brute-force activity.
+Splunk detected multiple failed authentication attempts against a Windows Server account, consistent with brute force activity.
 
 ## Environment
 - Victim: Windows Server (RDP enabled)
@@ -9,7 +9,7 @@ Splunk detected multiple failed authentication attempts against a Windows Server
 - SIEM: Splunk (Windows Security + Sysmon ingestion)
 
 ## Detection
-- Alert: SOC - Brute Force Authentication Attempt
+- Alert: SOC  Brute Force Authentication Attempt
 - Data: Windows Security Event ID 4625
 - Trigger: >= 5 failures from same source IP within a short time window
 
