@@ -32,11 +32,11 @@ Throttling: Enabled (30 minutes)
 T1059.001 Command and Scripting Interpreter: PowerShell
 
 ## SOC triage steps
--Review commandline arguments
--Identify user context
--Check parent process
--Investigate post-execution activity
--Contain host if malicious
+-Review PowerShell command-line arguments
+-Identify the executing user and host
+-Check parent process and execution context
+-Investigate follow on activity (file creation, network connections)
+-Contain host if malicious behavior is confirmed
 
 ##Detection Design Notes
 Field extraction for Sysmon events varied by environment.
