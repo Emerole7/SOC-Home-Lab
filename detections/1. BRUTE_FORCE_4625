@@ -23,7 +23,11 @@ index=main sourcetype="wineventlog:security" EventCode=4625 earliest=-10m | wher
 ## MITRE ATT&CK
 - T1110 — Brute Force (Credential Access)
 
-
+## SOC Triage Steps
+1. Identify source IP and affected account(s)
+2. Check for successful logons after failures (4624)
+3. Confirm if source IP is internal or external (lab: Kali)
+4. Recommend containment (block IP / disable account / enforce MFA)
 
 ## Screenshots
 Splunk-alert-config.png
